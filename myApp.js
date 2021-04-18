@@ -1,12 +1,8 @@
 var express = require("express");
+var bodyParser = require('body-parser');
 var app = express();
 
-
-app.get(
-  "/:word/echo", (req, res) => {
-    res.json({ echo: req.params.word });
-  }
-);
-
+app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.json());
 
 module.exports = app;
